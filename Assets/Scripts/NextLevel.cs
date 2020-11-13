@@ -15,7 +15,7 @@ public class NextLevel : MonoBehaviour
 
     public void LoadNextScene() {
 
-        if (m_Scene.name == "Pre-Test Survey") {
+        if (m_Scene.name == "StartScreen") {
             SceneManager.LoadScene("Level1");
         } else if (m_Scene.name == "Level1") {
             Debug.Log("Loading Level2");
