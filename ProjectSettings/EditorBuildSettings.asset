@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Pre-Test Survey.unity
+    path: Assets/Scenes/StartScreen.unity
     guid: 42d770aee0ac143e79422e9ce1a68b9e
   - enabled: 1
     path: Assets/Scenes/Level1.unity

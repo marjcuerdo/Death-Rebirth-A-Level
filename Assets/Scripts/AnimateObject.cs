@@ -7,11 +7,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AnimateObject : MonoBehaviour
 {
     Animator m_Animator;
-    public float animSpeed = 0.6f;
+    Animation m_Animation;
+
+    public float animSpeed = 1f;
 
     public PlayerMovement gObj;
     //public NextLevel lObj;
@@ -22,7 +25,10 @@ public class AnimateObject : MonoBehaviour
         gObj = GameObject.Find("Player").GetComponent<PlayerMovement>();
 
         //Get the Animator attached to the GameObject you are intending to animate.
+
         m_Animator = GetComponent<Animator>();
+
+        //m_Animation = GetComponent<Animation>();
         m_Animator.enabled = false;
     }
 
@@ -52,7 +58,6 @@ public class AnimateObject : MonoBehaviour
             //Debug.Log("reset animation");
             //lObj.LoadNextScene();
         }
-
         
     }
 }

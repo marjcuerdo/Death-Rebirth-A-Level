@@ -3965,7 +3965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeText: {fileID: 1339572383}
-  timeRemaining: 300
+  timeRemaining: 600
   timeInc: 0
   timerIsRunning: 1
   gObj: {fileID: 0}

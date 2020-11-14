@@ -240,6 +240,11 @@ public class PlayerMovement : MonoBehaviour
             PlayerPrefs.SetInt("Extra Hearts", hObj.currentExtraHearts);
             PlayerPrefs.SetInt("Took Damage", (hObj.tookDamage ? 1 : 0));
 
+            if (SceneManager.GetActiveScene().name == "Level5") {
+                PlayerPrefs.SetFloat("TimeRem", 300);
+                PlayerPrefs.SetFloat("TimeInc", 0);
+            }
+
             isNewGame = false;
             advanceLevel = true;
         }
