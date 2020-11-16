@@ -29,6 +29,12 @@ public class NextLevel : MonoBehaviour
         } else if (m_Scene.name == "Level5") {
             SceneManager.LoadScene("WinScreen");
         } else if (m_Scene.name == "WinScreen") {
+            
+            PlayerPrefs.SetFloat("TimeRem", 600);
+            PlayerPrefs.SetFloat("TimeInc", 0);
+            PlayerPrefs.SetInt("Player Score", 0);
+            PlayerPrefs.SetInt("Player Health", 5);
+            PlayerPrefs.SetInt("Extra Hearts", 0);
             SceneManager.LoadScene("Level1");
         } else
         { 

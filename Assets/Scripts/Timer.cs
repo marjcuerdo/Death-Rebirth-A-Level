@@ -39,7 +39,7 @@ public class Timer : MonoBehaviour
     	// while timer is running
         if (timerIsRunning)
         {
-        	// when 5 mins or 300 secs aren't up yet
+        	// when 10 mins or 600 secs aren't up yet
             if (timeRemaining > 1 )
             {
                 timeRemaining -= Time.deltaTime; // decrement from 5 mins/300 secs
@@ -71,7 +71,7 @@ public class Timer : MonoBehaviour
 
     // reset timer when exit game
     public void OnApplicationQuit(){
-         PlayerPrefs.SetFloat("TimeRem", 300);
+         PlayerPrefs.SetFloat("TimeRem", 600);
          PlayerPrefs.SetFloat("TimeInc", 0);
          //Debug.Log("Reset score");
     }

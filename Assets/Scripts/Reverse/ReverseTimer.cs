@@ -6,7 +6,7 @@ using UnityEngine;
 public class ReverseTimer : MonoBehaviour
 {
 	public TextMeshProUGUI timeText;
-	public float timeRemaining = 300; 
+	public float timeRemaining = 600; 
 	public float timeInc = 0;
     public bool timerIsRunning = false;
 
@@ -71,7 +71,7 @@ public class ReverseTimer : MonoBehaviour
 
     // reset timer when exit game
     public void OnApplicationQuit(){
-         PlayerPrefs.SetFloat("TimeRem", 300);
+         PlayerPrefs.SetFloat("TimeRem", 600);
          PlayerPrefs.SetFloat("TimeInc", 0);
          //Debug.Log("Reset score");
     }

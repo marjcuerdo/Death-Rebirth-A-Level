@@ -11,7 +11,7 @@ public class ReversePlayerMovement : MonoBehaviour
     public ReverseHealth hObj;
     public ReverseScore sObj;
     public ReverseTimer tObj;
-    public Wind wObj; // not in Reverse
+    public Wind wObj;
 
     SpriteRenderer sr; //
     Color srOrigColor; //
@@ -36,7 +36,14 @@ public class ReversePlayerMovement : MonoBehaviour
     public AudioSource coinAudio;
     public AudioSource deathAudio;
 
+    public Animator anim;
+
+    public ReverseCharacterController cObj;
+    
+
     void Start() {
+        cObj = GetComponent<ReverseCharacterController>();
+        anim = GetComponent<Animator>();
         sObj = GetComponent<ReverseScore>();
         hObj = GetComponent<ReverseHealth>();
         tObj = GetComponent<ReverseTimer>();
@@ -66,11 +73,21 @@ public class ReversePlayerMovement : MonoBehaviour
         {
             jump = true;
             //Debug.Log("jumping");
+
+        } 
+
+        if (horizontalMove == 0 && cObj.m_Grounded) {
+            anim.SetBool("isRunning", false);
+        } else if (horizontalMove > 0 && !cObj.m_Grounded){
+            anim.SetBool("isRunning", false);
+        } else {
+            anim.SetBool("isRunning", true);
         }
 
+
+
         // for crouching
-        /*
-        if (Input.GetButtonDown("Crouch")) 
+        /*if (Input.GetButtonDown("Crouch")) 
         {
             crouch = true;
             //Debug.Log("crouch down");
@@ -84,7 +101,6 @@ public class ReversePlayerMovement : MonoBehaviour
             for (int i=0; i <sprites.Length; i++) {
                 sprites[i].color = new Color(1,1,1,0.5f);
             }
-        
 
             StartCoroutine("FadeBack");
         }
@@ -115,6 +131,7 @@ public class ReversePlayerMovement : MonoBehaviour
                 for (int i=0; i <sprites.Length; i++) {
                     sprites[i].color = new Color (0f, 0f, 255f/255f, 1f);
                 }
+
                 StartCoroutine("FadeBack");   
             }
         }
@@ -141,6 +158,7 @@ public class ReversePlayerMovement : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Level5") {
             if (wObj.windIsBlowing) {
+
                 yield return new WaitForSeconds(3f);
                 for (int i=0; i <sprites.Length; i++) {
                     sprites[i].color = srOrigColor;
@@ -237,9 +255,12 @@ public class ReversePlayerMovement : MonoBehaviour
             PlayerPrefs.SetInt("Player Score", sObj.score);
             PlayerPrefs.SetInt("Player Health", hObj.health);
             PlayerPrefs.SetInt("Extra Hearts", hObj.currentExtraHearts);
-            PlayerPrefs.SetInt("JCounter", 0);
-            PlayerPrefs.SetInt("KCounter", 0);
             PlayerPrefs.SetInt("Took Damage", (hObj.tookDamage ? 1 : 0));
+
+            if (SceneManager.GetActiveScene().name == "WinScreen") {
+                PlayerPrefs.SetFloat("TimeRem", 300);
+                PlayerPrefs.SetFloat("TimeInc", 0);
+            }
 
             isNewGame = false;
             advanceLevel = true;
