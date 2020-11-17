@@ -40,13 +40,13 @@ public class Timer : MonoBehaviour
         if (timerIsRunning)
         {
         	// when 10 mins or 600 secs aren't up yet
-            if (timeRemaining > 1 )
-            {
+            //if (timeRemaining > 1 )
+            //{
                 timeRemaining -= Time.deltaTime; // decrement from 5 mins/300 secs
                 timeInc += Time.deltaTime; // increment to current playing time
                 DisplayTime("Current playing time: ", timeInc); // continuously update time
-            }
-            else
+            //}
+            /*else
             {
                 //Debug.Log("Time has been met!");
                 timeInc += Time.deltaTime; // continue incrementing after 5 mins
@@ -54,7 +54,7 @@ public class Timer : MonoBehaviour
                 DisplayTime("Required play time met! ", timeInc); // notify user time's up
                 timeRemaining = 0;
                 //timerIsRunning = false; // use to stop timer when time is met
-            }
+            }*/
         }
     }
 
@@ -75,4 +75,6 @@ public class Timer : MonoBehaviour
          PlayerPrefs.SetFloat("TimeInc", 0);
          //Debug.Log("Reset score");
     }
+
+
 }

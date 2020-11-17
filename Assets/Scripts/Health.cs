@@ -35,7 +35,7 @@ public class Health : MonoBehaviour
             //health = PlayerPrefs.GetInt("Player Health");
             currentExtraHearts = PlayerPrefs.GetInt("Extra Hearts");
             health = PlayerPrefs.GetInt("Player Health");
-            Debug.Log("getting health: " + health);
+            //Debug.Log("getting health: " + health);
             //Debug.Log("getting extra");
             //j = PlayerPrefs.GetInt("JCounter");
             //k = PlayerPrefs.GetInt("KCounter");
@@ -52,7 +52,7 @@ public class Health : MonoBehaviour
 
         if (health > numOfHearts) {
             currentExtraHearts = health - numOfHearts; 
-            Debug.Log("currentExtraHearts: " + currentExtraHearts);
+           // Debug.Log("currentExtraHearts: " + currentExtraHearts);
 
         } else {
             currentExtraHearts = 0;
