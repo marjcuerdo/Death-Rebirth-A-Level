@@ -35,6 +35,7 @@ public class NextLevel : MonoBehaviour
             PlayerPrefs.SetInt("Player Score", 0);
             PlayerPrefs.SetInt("Player Health", 5);
             PlayerPrefs.SetInt("Extra Hearts", 0);
+            PlayerPrefs.SetInt("Player Deaths", 0);
             SceneManager.LoadScene("Level1");
         } else
         { 

@@ -8,6 +8,7 @@ public class FinalStats : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
    	public TextMeshProUGUI timeText;
+    public TextMeshProUGUI deathsText;
 
     public SpriteRenderer medal;
 
@@ -19,8 +20,9 @@ public class FinalStats : MonoBehaviour
     void Start()
     {
         scoreText.text = PlayerPrefs.GetInt("Player Score").ToString();
+        deathsText.text = PlayerPrefs.GetInt("Player Deaths").ToString();
         //timeText.text = PlayerPrefs.GetInt("TimeInc").ToString();
-        Debug.Log("TIME: " + PlayerPrefs.GetFloat("Player Score").ToString());
+        //Debug.Log("TIME: " + PlayerPrefs.GetFloat("Player Score").ToString());
         DisplayTime(PlayerPrefs.GetFloat("TimeInc"));
         medal = GetComponent<SpriteRenderer>();
 
@@ -53,6 +55,7 @@ public class FinalStats : MonoBehaviour
          PlayerPrefs.SetFloat("TimeInc", 0);
          PlayerPrefs.SetInt("Player Score", 0);
          PlayerPrefs.SetInt("Player Health", 5);
+         PlayerPrefs.SetInt("Player Deaths", 0);
          //Debug.Log("Reset score");
     }
 }

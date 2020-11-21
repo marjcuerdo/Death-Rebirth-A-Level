@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Score sObj;
     public Timer tObj;
     public Wind wObj;
+    public ResetLevel rObj;
 
 	SpriteRenderer sr; //
     Color srOrigColor; //
@@ -29,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
     public bool advanceLevel = false;
     public bool isNewGame = true;
 
+    public int deathCounter = 0;
+    public TextMeshProUGUI deathText;
+
     SpriteRenderer[] sprites;
 
     public NextLevel lObj;
@@ -41,8 +46,13 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D cObj;
     
 
-	void Start() {
+	void Awake() {
+        deathCounter = PlayerPrefs.GetInt("Player Deaths"); ////////////////////
+    }
+
+    void Start() {
         cObj = GetComponent<CharacterController2D>();
+        rObj = GameObject.Find("God").GetComponent<ResetLevel>();
         anim = GetComponent<Animator>();
         sObj = GetComponent<Score>();
 		hObj = GetComponent<Health>();
@@ -84,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isRunning", true);
         }
 
+         deathText.text = deathCounter.ToString(); // display current # deaths
 
 
         // for crouching
@@ -114,10 +125,15 @@ public class PlayerMovement : MonoBehaviour
 
         // Restart level if death conditions are met
         if (isDead) {
+
+            deathCounter += 1; // increment death
+           // Debug.Log(deathCounter);
+            PlayerPrefs.SetInt("Player Deaths", deathCounter); ///////////////////
+
             isDead = false;
 
             // reload current level / beginning of checkpoint
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            rObj.RestartLevel();
         }
 
         // when chest/finish point is reached, load next level
@@ -203,7 +219,7 @@ public class PlayerMovement : MonoBehaviour
             // Add points to player score
             sObj.AddPoints(10);
             coinAudio.Play();
-			Destroy(col.gameObject);
+			col.gameObject.SetActive(false);
 		} 
 
 
@@ -212,7 +228,7 @@ public class PlayerMovement : MonoBehaviour
 
 			// Health decrease by 1
 			hObj.TakeDamage(1);
-            Debug.Log("HEALTH: " + hObj.health);
+            //Debug.Log("HEALTH: " + hObj.health);
             hObj.tookDamage = true; /////
 
 			// Change player's color
@@ -228,7 +244,7 @@ public class PlayerMovement : MonoBehaviour
 
             // Health decrease by 1
             hObj.AddHealth();
-            Debug.Log("HEALTH: " + hObj.health);
+            //Debug.Log("HEALTH: " + hObj.health);
 
             // make health pack inactive
             col.gameObject.SetActive(false);
@@ -254,6 +270,7 @@ public class PlayerMovement : MonoBehaviour
             PlayerPrefs.SetFloat("TimeInc", tObj.timeInc);
             PlayerPrefs.SetInt("Player Score", sObj.score);
             PlayerPrefs.SetInt("Player Health", hObj.health);
+            PlayerPrefs.SetInt("Player Deaths", deathCounter); ///////////////////////
             PlayerPrefs.SetInt("Extra Hearts", hObj.currentExtraHearts);
             PlayerPrefs.SetInt("Took Damage", (hObj.tookDamage ? 1 : 0));
 
@@ -281,5 +298,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+            // reset deaths when exit game
+    public void OnApplicationQuit(){
+         PlayerPrefs.SetInt("Player Deaths", 0);
+    }
 
 }
