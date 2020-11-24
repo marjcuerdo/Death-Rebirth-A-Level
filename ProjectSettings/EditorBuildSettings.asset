@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: 80f3169b3b9a44f6094d0c92e16da2b1
+  - enabled: 1
+    path: Assets/Scenes/TimeUpScreen.unity
+    guid: 769d25693b4554acfa33a644bf06af4b
   m_configObjects: {}

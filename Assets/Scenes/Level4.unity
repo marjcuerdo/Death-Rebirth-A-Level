@@ -6255,10 +6255,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeText: {fileID: 2121378840}
-  timeRemaining: 600
+  timeRemaining: 900
   timeInc: 0
   timerIsRunning: 1
   gObj: {fileID: 0}
+  sObj: {fileID: 0}
+  hObj: {fileID: 0}
 --- !u!114 &942545032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9084,7 +9086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1492684821}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -87.21, y: -15.08, z: -10}
+  m_LocalPosition: {x: -87.21, y: -17.539999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 853836125}

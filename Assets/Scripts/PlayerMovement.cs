@@ -275,7 +275,7 @@ public class PlayerMovement : MonoBehaviour
             PlayerPrefs.SetInt("Took Damage", (hObj.tookDamage ? 1 : 0));
 
             if (SceneManager.GetActiveScene().name == "WinScreen") {
-                PlayerPrefs.SetFloat("TimeRem", 300);
+                PlayerPrefs.SetFloat("TimeRem", 900);
                 PlayerPrefs.SetFloat("TimeInc", 0);
             }
 

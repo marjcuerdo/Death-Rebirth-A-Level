@@ -5,6 +5,6 @@ using UnityEngine;
 public class OpenLink : MonoBehaviour
 {
 	public void OpenChannel() {
-		Application.OpenURL("https://ucsantacruz.co1.qualtrics.com/jfe/form/SV_3lAQYV4CwPrbcUZ");
+		//Application.ExternalEval("window.open(\"https://ucsantacruz.co1.qualtrics.com/jfe/form/SV_byhsCNElSKaWwyF\",\"_blank\")");
 	}
 }

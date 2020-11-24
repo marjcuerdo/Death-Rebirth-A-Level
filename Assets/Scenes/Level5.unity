@@ -13440,10 +13440,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeText: {fileID: 1447300309}
-  timeRemaining: 600
+  timeRemaining: 900
   timeInc: 0
   timerIsRunning: 1
   gObj: {fileID: 0}
+  sObj: {fileID: 0}
+  hObj: {fileID: 0}
 --- !u!114 &1241484102
 MonoBehaviour:
   m_ObjectHideFlags: 0
