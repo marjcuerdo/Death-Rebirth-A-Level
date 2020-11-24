@@ -61,11 +61,11 @@ public class Timer : MonoBehaviour
                 //timerIsRunning = false; // use to stop timer when time is met
             }*/
             if (timeRemaining <= 0) {
-                PlayerPrefs.SetFloat("TimeRem", 900);
-                PlayerPrefs.SetFloat("TimeInc", 0);
-                PlayerPrefs.SetInt("Player Score", 0);
-                PlayerPrefs.SetInt("Player Health", 5);
-                PlayerPrefs.SetInt("Player Deaths", 0);
+            	PlayerPrefs.SetFloat("TimeRem", timeRemaining);
+            	PlayerPrefs.SetFloat("TimeInc", timeInc);
+            	PlayerPrefs.SetInt("Player Score", sObj.score);
+           	 	PlayerPrefs.SetInt("Player Health", hObj.health);
+            	PlayerPrefs.SetInt("Player Deaths", gObj.deathCounter);
             	SceneManager.LoadScene("TimeUpScreen");
             }
         }
