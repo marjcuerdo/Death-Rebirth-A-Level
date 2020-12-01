@@ -19,6 +19,11 @@ public class Timer : MonoBehaviour
     	gObj = GameObject.Find("Player").GetComponent<PlayerMovement>(); // instantiate to access Player
     	sObj = GameObject.Find("Player").GetComponent<Score>();
     	hObj = GameObject.Find("Player").GetComponent<Health>();
+    	if (gObj.isNewGame) {
+            gObj.isNewGame = false;
+    		timeInc = 0;
+    		timeRemaining = 900;
+    	} else { 
     	//if (gObj.isNewGame == false) {
             //Debug.Log("getting time: " + PlayerPrefs.GetFloat("TimeInc").ToString());
             // get current time
@@ -26,10 +31,24 @@ public class Timer : MonoBehaviour
             timeRemaining = PlayerPrefs.GetFloat("TimeRem");
             //Debug.Log("time again: " + PlayerPrefs.GetFloat("TimeInc").ToString());
         //}
+        }
     }
 
 	void Start() {
 		timerIsRunning = true;
+        if (gObj.isNewGame) {
+            gObj.isNewGame = false;
+            timeInc = 0;
+            timeRemaining = 900;
+        } else { 
+        //if (gObj.isNewGame == false) {
+            //Debug.Log("getting time: " + PlayerPrefs.GetFloat("TimeInc").ToString());
+            // get current time
+            timeInc = PlayerPrefs.GetFloat("TimeInc");
+            timeRemaining = PlayerPrefs.GetFloat("TimeRem");
+            //Debug.Log("time again: " + PlayerPrefs.GetFloat("TimeInc").ToString());
+        //}
+        }
 	}
 
 	void Update()
