@@ -61,9 +61,4 @@ public class FinalStats : MonoBehaviour
         }
     }
 
-    // reset timer when exit game
-    public void OnApplicationQuit(){
-         //PlayerPrefs.DeleteAll();
-         //Debug.Log("Reset score");
-    }
 }
