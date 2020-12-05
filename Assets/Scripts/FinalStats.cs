@@ -10,6 +10,7 @@ public class FinalStats : MonoBehaviour
     public TextMeshProUGUI scoreText;
    	public TextMeshProUGUI timeText;
     public TextMeshProUGUI deathsText;
+    public TextMeshProUGUI levelText;
 
     public SpriteRenderer medal;
 
@@ -22,6 +23,7 @@ public class FinalStats : MonoBehaviour
     {
         scoreText.text = PlayerPrefs.GetInt("Player Score").ToString();
         deathsText.text = PlayerPrefs.GetInt("Player Deaths").ToString();
+        levelText.text = PlayerPrefs.GetInt("Level Reached").ToString();
         //timeText.text = PlayerPrefs.GetInt("TimeInc").ToString();
         //Debug.Log("TIME: " + PlayerPrefs.GetFloat("Player Score").ToString());
         DisplayTime(PlayerPrefs.GetFloat("TimeInc"));

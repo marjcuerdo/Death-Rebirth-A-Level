@@ -44,6 +44,8 @@ public class ReversePlayerMovement : MonoBehaviour
     public Animator anim;
 
     public ReverseCharacterController cObj;
+
+    public int levelReached = 2;
     
     void Awake() {
         deathCounter = PlayerPrefs.GetInt("Player Deaths");
@@ -56,6 +58,17 @@ public class ReversePlayerMovement : MonoBehaviour
         sObj = GetComponent<ReverseScore>();
         hObj = GetComponent<ReverseHealth>();
         tObj = GetComponent<ReverseTimer>();
+        if (SceneManager.GetActiveScene().name == "Level1") {
+            PlayerPrefs.SetInt("Level Reached", 1);
+        } else if (SceneManager.GetActiveScene().name == "Level2") {
+            PlayerPrefs.SetInt("Level Reached", 2);
+        } else if (SceneManager.GetActiveScene().name == "Level3") {
+            PlayerPrefs.SetInt("Level Reached", 3);
+        } else if (SceneManager.GetActiveScene().name == "Level4") {
+            PlayerPrefs.SetInt("Level Reached", 4);
+        } else if (SceneManager.GetActiveScene().name == "Level5") {
+            PlayerPrefs.SetInt("Level Reached", 5);
+        }
         if (SceneManager.GetActiveScene().name == "Level5") {
             wObj = GetComponent<Wind>();
         }
