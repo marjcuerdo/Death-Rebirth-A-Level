@@ -23,9 +23,9 @@ public class FinalStats : MonoBehaviour
     {
         scoreText.text = PlayerPrefs.GetInt("Player Score").ToString();
         deathsText.text = PlayerPrefs.GetInt("Player Deaths").ToString();
-        levelText.text = PlayerPrefs.GetInt("Level Reached").ToString();
-        //timeText.text = PlayerPrefs.GetInt("TimeInc").ToString();
-        //Debug.Log("TIME: " + PlayerPrefs.GetFloat("Player Score").ToString());
+        if (SceneManager.GetActiveScene().name == "TimeUpScreen") {
+            levelText.text = PlayerPrefs.GetInt("Level Reached").ToString();
+        }
         DisplayTime(PlayerPrefs.GetFloat("TimeInc"));
         if (SceneManager.GetActiveScene().name == "WinScreen") {
             medal = GetComponent<SpriteRenderer>();

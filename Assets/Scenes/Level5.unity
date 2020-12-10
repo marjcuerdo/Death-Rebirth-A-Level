@@ -10123,7 +10123,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 923816548}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6100044, y: -0.4799998, z: 560.8741}
+  m_LocalPosition: {x: 0.40000153, y: 0.41000012, z: 560.8741}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1437052570}
@@ -13540,6 +13540,7 @@ MonoBehaviour:
   deathAudio: {fileID: 1241484096}
   anim: {fileID: 0}
   cObj: {fileID: 0}
+  levelReached: 1
 --- !u!50 &1241484106
 Rigidbody2D:
   serializedVersion: 4
@@ -13640,7 +13641,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1241484092}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6100044, y: -0.47999993, z: 570.8741}
+  m_LocalPosition: {x: 0.4, y: 0.41, z: 570.8741}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 706237519}
@@ -17120,7 +17121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713725071}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6100044, y: -0.4799998, z: 560.8741}
+  m_LocalPosition: {x: 0.40000153, y: 0.41000012, z: 560.8741}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 508433044}
